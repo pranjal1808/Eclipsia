@@ -1,0 +1,63 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #fafafa;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 600px;
+  margin: 2rem auto;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+h1 {
+  text-align: center;
+  color: #6a1b9a;
+}
+
+h2 {
+  color: #333;
+  margin-top: 2rem;
+}
+
+form label {
+  display: block;
+  margin-bottom: 1rem;
+}
+
+input[type="date"] {
+  padding: 0.4rem;
+  margin-left: 0.5rem;
+}
+
+button {
+  background: #6a1b9a;
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #4a148c;
+}
+
+#periodLogs {
+  margin-top: 1rem;
+}
+
+#periodLogs p {
+  background: #eee;
+  padding: 0.5rem;
+  border-radius: 4px;
+}
+
+section {
+  margin-bottom: 2rem;
+}

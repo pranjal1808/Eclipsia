@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Period Tracker</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+  <div class="container">
+    <h1>🌙 Cycle Tracker</h1>
+
+    <!-- Period Logging -->
+    <section>
+      <h2>Log Period</h2>
+      <form id="periodForm">
+        <label>Start Date:
+          <input type="date" id="startDate" required>
+        </label>
+        <label>End Date:
+          <input type="date" id="endDate" required>
+        </label>
+        <button type="submit">Save Period</button>
+      </form>
+      <div id="periodLogs"></div>
+    </section>
+
+    <!-- Water Tracker -->
+    <section>
+      <h2>💧 Water Tracker</h2>
+      <button id="addCup">Add 1 Cup</button>
+      <p id="waterCount">0 Cups Today</p>
+    </section>
+
+    <!-- Pregnancy Mode -->
+    <section>
+      <h2>🤰 Pregnancy Mode</h2>
+      <label>
+        <input type="checkbox" id="pregnancyMode">
+        Enable Pregnancy Mode
+      </label>
+    </section>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
