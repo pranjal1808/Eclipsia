@@ -1,0 +1,6 @@
+@Eclipsia.API_HostAddress = http://localhost:5065
+
+GET {{Eclipsia.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
