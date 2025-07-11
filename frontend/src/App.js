@@ -7,7 +7,7 @@ export default function App() {
   const [waterLogs, setWaterLogs] = useState([]);
 
   const API = axios.create({
-    baseURL: "http://localhost:5065/api", // your ASP.NET Core backend URL + /api prefix
+    baseURL: "http://localhost:5000/api", // your ASP.NET Core backend URL + /api prefix
   });
 
   // Get a user by ID
