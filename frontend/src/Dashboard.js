@@ -1,55 +1,36 @@
 import React, { useState, useEffect } from "react";
 
-function Modal({ children, onClose }) {
-  return (
-    <div style={{
-      position: "fixed",
-      top: 0, left: 0, right: 0, bottom: 0,
-      backgroundColor: "rgba(240, 200, 229, 1)",
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
-      zIndex: 1000
-    }}>
-      <div style={{
-        backgroundColor: "#fff",
-        padding: "20px",
-        borderRadius: "8px",
-        minWidth: "300px",
-        boxShadow: "0 2px 10px rgba(18, 16, 17, 1)"
-      }}>
-        {children}
-        <div style={{ marginTop: "20px", textAlign: "right" }}>
-          <button onClick={onClose} style={{ marginRight: "10px" }}>Cancel</button>
-        </div>
-      </div>
-    </div>
-  );
-}
-
 export default function Dashboard(props) {
-  const [modalOpen, setModalOpen] = useState(false);
   const [tempStartDate, setTempStartDate] = useState(props.startDate || "");
   const [tempEndDate, setTempEndDate] = useState(props.endDate || "");
   const [startDate, setStartDate] = useState(props.startDate || "");
   const [endDate, setEndDate] = useState(props.endDate || "");
   const [currentDay, setCurrentDay] = useState(null);
 
-  const openModal = () => {
-    setTempStartDate(startDate);
-    setTempEndDate(endDate);
-    setModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setModalOpen(false);
-  };
-
   const saveDates = () => {
     setStartDate(tempStartDate);
     setEndDate(tempEndDate);
-    setModalOpen(false);
+    if (props.onDateChange) {
+      props.onDateChange(tempStartDate, tempEndDate);
+    }
   };
+
+  const handleBack = () => {
+    if (props.onBack) {
+      props.onBack();
+    }
+  };
+
+  useEffect(() => {
+    if (props.startDate !== startDate) {
+      setStartDate(props.startDate || "");
+      setTempStartDate(props.startDate || "");
+    }
+    if (props.endDate !== endDate) {
+      setEndDate(props.endDate || "");
+      setTempEndDate(props.endDate || "");
+    }
+  }, [props.startDate, props.endDate]);
 
   useEffect(() => {
     if (startDate) {
@@ -73,7 +54,7 @@ export default function Dashboard(props) {
   }, [startDate, endDate]);
 
   return (
-    <div style={{ textAlign: "center", padding: "20px" }}>
+    <div style={{ textAlign: "center", padding: "20px", backgroundColor: "#1f1d1cff" }}>
       <h2>Hi {props.user}, Your current cycle</h2>
 
       <div
@@ -95,7 +76,31 @@ export default function Dashboard(props) {
 
       <p>{props.pregnancyChance}</p>
 
-      <button onClick={openModal}>Edit Period</button>
+      <div>
+        <h3>Edit Period Dates</h3>
+        <label>
+          Start Date:{" "}
+          <input
+            type="date"
+            value={tempStartDate}
+            onChange={(e) => setTempStartDate(e.target.value)}
+          />
+        </label>
+        <br />
+        <label>
+          End Date:{" "}
+          <input
+            type="date"
+            value={tempEndDate}
+            onChange={(e) => setTempEndDate(e.target.value)}
+          />
+        </label>
+        <div style={{ marginTop: "20px", textAlign: "right" }}>
+          <button onClick={saveDates} style={{ marginRight: "10px" }}>
+            Save
+          </button>
+        </div>
+      </div>
 
       <p>
         Period Start Date: {startDate || "N/A"} <br />
@@ -106,37 +111,11 @@ export default function Dashboard(props) {
         <h3>My Cycles</h3>
         <p>Days to ovulation: {props.daysToOvulation}</p>
         <p>Day of cycle: {props.dayOfCycle}</p>
-        <p>Water tracking: {props.waterTrackingStatus}</p>
+      <p>Water tracking: {props.waterTrackingStatus}</p>
       </div>
-
-      {modalOpen && (
-        <Modal onClose={closeModal}>
-          <h3>Edit Period Dates</h3>
-          <label>
-            Start Date:{" "}
-            <input
-              type="date"
-              value={tempStartDate}
-              onChange={(e) => setTempStartDate(e.target.value)}
-            />
-          </label>
-          <br />
-          <label>
-            End Date:{" "}
-            <input
-              type="date"
-              value={tempEndDate}
-              onChange={(e) => setTempEndDate(e.target.value)}
-            />
-          </label>
-          <div style={{ marginTop: "20px", textAlign: "right" }}>
-            <button onClick={saveDates} style={{ marginRight: "10px" }}>
-              Save
-            </button>
-            <button onClick={closeModal}>Cancel</button>
-          </div>
-        </Modal>
-      )}
+      <button onClick={handleBack} style={{ fontSize: "24px", cursor: "pointer", background: "none", border: "none", marginTop: "20px" }} aria-label="Back">
+        ←
+      </button>
     </div>
   );
 }
