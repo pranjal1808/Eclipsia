@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\eclipcia\\Eclipsia.API\\Eclipsia.API.csproj": {}
+    "D:\\Eclipsia\\Eclipsia\\Eclipsia.API\\Eclipsia.API.csproj": {}
   },
   "projects": {
-    "D:\\eclipcia\\Eclipsia.API\\Eclipsia.API.csproj": {
+    "D:\\Eclipsia\\Eclipsia\\Eclipsia.API\\Eclipsia.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\eclipcia\\Eclipsia.API\\Eclipsia.API.csproj",
+        "projectUniqueName": "D:\\Eclipsia\\Eclipsia\\Eclipsia.API\\Eclipsia.API.csproj",
         "projectName": "Eclipsia.API",
-        "projectPath": "D:\\eclipcia\\Eclipsia.API\\Eclipsia.API.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "D:\\eclipcia\\Eclipsia.API\\obj\\",
+        "projectPath": "D:\\Eclipsia\\Eclipsia\\Eclipsia.API\\Eclipsia.API.csproj",
+        "packagesPath": "C:\\Users\\Ishita\\.nuget\\packages\\",
+        "outputPath": "D:\\Eclipsia\\Eclipsia\\Eclipsia.API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Ishita\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
@@ -38,7 +38,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.300"
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net9.0": {
@@ -90,7 +90,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.302/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
