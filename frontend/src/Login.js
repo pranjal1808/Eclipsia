@@ -1,82 +1,75 @@
-// src/App.js
 import React, { useState } from "react";
-import "./App.css";
+import "./Login.css";
 
-export default function App() {
-  // If you have login flow, replace this with your real auth state
-  const [user, setUser] = useState("Khedekar Ishita"); 
+export default function Login({ onLogin }) {
+  const [username, setUsername] = useState("");
 
-  return (
-    <div className="app">
-      <header className="header">
-        <div className="header-left">
-          <div className="avatar">I</div>
-          <div>
-            <div className="greet">Hi <span className="name">{user}</span>,</div>
-            <div className="sub">Your current cycle</div>
-          </div>
-        </div>
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (username.trim()) {
+      onLogin(username.trim());
+    }
+  };
 
-        <nav className="header-nav">
-          <button className="icon-btn">⟳</button>
-          <button className="icon-btn">📅</button>
-        </nav>
-      </header>
-
-      <main className="main">
-        <section className="top-card">
-          <div className="circle">
-            <div className="circle-inner">
-              <div className="period-label">Period</div>
-              <div className="period-day">1</div>
-              <div className="fertility">Low chance to get pregnant</div>
-            </div>
-          </div>
-          <button className="edit-btn">EDIT PERIOD</button>
-        </section>
-
-        <section className="calendar-strip">
-          <h3>July 2025</h3>
-          <div className="days">
-            {["Sun","Mon","Tue","Wed","Thu","Fri","Sat"].map((d, i) => (
-              <div key={d} className={`day ${i===1 ? "active" : ""}`}>
-                <div className="date">{6 + i}</div>
-                <div className="dow">{d}</div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        <section className="cards">
-          <div className="card">
-            <p className="card-title">Log your symptoms</p>
-            <button className="plus">+</button>
-          </div>
-
-          <div className="card">
-            <p className="card-title">Day to ovulation</p>
-            <div className="card-value">13</div>
-          </div>
-
-          <div className="card">
-            <p className="card-title">Day of cycle</p>
-            <div className="card-value">1</div>
-          </div>
-
-          <div className="card">
-            <p className="card-title">Water tracking</p>
-            <div className="card-value">2 cups</div>
-          </div>
-        </section>
-      </main>
-
-      <footer className="bottom-nav">
-        <button>Home</button>
-        <button>Calendar</button>
-        <button className="plus-center">+</button>
-        <button>Statistics</button>
-        <button>Profile</button>
-      </footer>
-    </div>
+  return React.createElement("div", {
+    style: {
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      minHeight: "100vh",
+      backgroundColor: "#1f1d1cff",
+      color: "#fff"
+    }
+  },
+    React.createElement("div", {
+      style: {
+        backgroundColor: "#2a2a2a",
+        padding: "40px",
+        borderRadius: "10px",
+        boxShadow: "0 4px 8px rgba(0,0,0,0.3)",
+        textAlign: "center",
+        maxWidth: "400px",
+        width: "100%"
+      }
+    },
+      React.createElement("h1", {
+        style: { marginBottom: "30px", color: "#ef6eb1ff" }
+      }, "Welcome to Eclipsia"),
+      React.createElement("form", { onSubmit: handleSubmit },
+        React.createElement("div", { style: { marginBottom: "20px" } },
+          React.createElement("label", {
+            style: { display: "block", marginBottom: "10px", fontSize: "16px" }
+          }, "Enter your name:"),
+          React.createElement("input", {
+            type: "text",
+            value: username,
+            onChange: (e) => setUsername(e.target.value),
+            placeholder: "Your name",
+            style: {
+              width: "100%",
+              padding: "12px",
+              borderRadius: "5px",
+              border: "1px solid #555",
+              backgroundColor: "#333",
+              color: "#fff",
+              fontSize: "16px"
+            }
+          })
+        ),
+        React.createElement("button", {
+          type: "submit",
+          style: {
+            width: "100%",
+            padding: "12px",
+            backgroundColor: "#ef6eb1ff",
+            color: "#fff",
+            border: "none",
+            borderRadius: "5px",
+            fontSize: "16px",
+            cursor: "pointer"
+          }
+        }, "Continue")
+      )
+    )
   );
 }
