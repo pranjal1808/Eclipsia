@@ -2,74 +2,67 @@ import React, { useState } from "react";
 import "./Login.css";
 
 export default function Login({ onLogin }) {
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [isSignup, setIsSignup] = useState(false);
+  const [error, setError] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (username.trim()) {
-      onLogin(username.trim());
+    setError("");
+    if (!email.trim() || !password.trim()) {
+      setError("Email and password are required");
+      return;
+    }
+
+    try {
+      const url = isSignup ? "/api/user/register" : "/api/user/login";
+      const response = await fetch(url, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password, PCOSFlag: false, PregnancyMode: false }),
+      });
+
+      const data = await response.json();
+      if (!response.ok) {
+        setError(data);
+      } else {
+        onLogin(email);
+      }
+    } catch (err) {
+      setError("An error occurred. Please try again.");
     }
   };
 
   return React.createElement("div", {
-    style: {
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
-      minHeight: "100vh",
-      backgroundColor: "#1f1d1cff",
-      color: "#fff"
-    }
+    className: "login-container"
   },
-    React.createElement("div", {
-      style: {
-        backgroundColor: "#2a2a2a",
-        padding: "40px",
-        borderRadius: "10px",
-        boxShadow: "0 4px 8px rgba(0,0,0,0.3)",
-        textAlign: "center",
-        maxWidth: "400px",
-        width: "100%"
-      }
-    },
-      React.createElement("h1", {
-        style: { marginBottom: "30px", color: "#ef6eb1ff" }
-      }, "Welcome to Eclipsia"),
-      React.createElement("form", { onSubmit: handleSubmit },
-        React.createElement("div", { style: { marginBottom: "20px" } },
-          React.createElement("label", {
-            style: { display: "block", marginBottom: "10px", fontSize: "16px" }
-          }, "Enter your name:"),
-          React.createElement("input", {
-            type: "text",
-            value: username,
-            onChange: (e) => setUsername(e.target.value),
-            placeholder: "Your name",
-            style: {
-              width: "100%",
-              padding: "12px",
-              borderRadius: "5px",
-              border: "1px solid #555",
-              backgroundColor: "#333",
-              color: "#fff",
-              fontSize: "16px"
-            }
-          })
-        ),
-        React.createElement("button", {
-          type: "submit",
-          style: {
-            width: "100%",
-            padding: "12px",
-            backgroundColor: "#ef6eb1ff",
-            color: "#fff",
-            border: "none",
-            borderRadius: "5px",
-            fontSize: "16px",
-            cursor: "pointer"
-          }
-        }, "Continue")
-      )
-    )
+    React.createElement("h1", null, isSignup ? "Sign Up" : "Login"),
+    error && React.createElement("p", { style: { color: "red" } }, error),
+    React.createElement("form", { onSubmit: handleSubmit },
+      React.createElement("div", { className: "input-group" },
+        React.createElement("label", null, "Email:"),
+        React.createElement("input", {
+          type: "email",
+          value: email,
+          onChange: (e) => setEmail(e.target.value),
+          placeholder: "Enter your email"
+        })
+      ),
+      React.createElement("div", { className: "input-group" },
+        React.createElement("label", null, "Password:"),
+        React.createElement("input", {
+          type: "password",
+          value: password,
+          onChange: (e) => setPassword(e.target.value),
+          placeholder: "Enter your password"
+        })
+      ),
+      React.createElement("button", { type: "submit" }, isSignup ? "Sign Up" : "Login")
+    ),
+    React.createElement("p", {
+      style: { marginTop: "15px", cursor: "pointer", color: "#4facfe" },
+      onClick: () => setIsSignup(!isSignup)
+    }, isSignup ? "Already have an account? Login" : "New user? Sign up here")
   );
 }

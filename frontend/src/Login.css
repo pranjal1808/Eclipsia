@@ -2,6 +2,11 @@ body {
   background: linear-gradient(120deg, #4facfe, #00f2fe);
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .login-container {
@@ -12,16 +17,16 @@ body {
   width: 100%;
   max-width: 350px;
   text-align: center;
-  margin: 5rem auto;
 }
 
 .login-container h1 {
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   color: #333;
+  font-size: 24px;
 }
 
 .login-container p {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   color: #666;
 }
 
@@ -33,16 +38,18 @@ body {
 .input-group label {
   font-size: 14px;
   color: #444;
+  display: block;
+  margin-bottom: 5px;
 }
 
 .input-group input {
   width: 100%;
   padding: 10px;
-  margin-top: 5px;
   border: 1px solid #ddd;
   border-radius: 8px;
   outline: none;
   transition: border 0.3s;
+  box-sizing: border-box;
 }
 
 .input-group input:focus {
@@ -51,7 +58,7 @@ body {
 
 button {
   width: 100%;
-  padding: 10px;
+  padding: 12px;
   background: #4facfe;
   border: none;
   border-radius: 8px;
@@ -59,8 +66,29 @@ button {
   font-size: 16px;
   cursor: pointer;
   transition: background 0.3s;
+  margin-top: 10px;
 }
 
 button:hover {
   background: #00c6fb;
+}
+
+.toggle-link {
+  margin-top: 15px;
+  color: #4facfe;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.toggle-link:hover {
+  text-decoration: underline;
+}
+
+.error-message {
+  color: #e74c3c;
+  background-color: #fdf2f2;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  border: 1px solid #f5c6cb;
 }

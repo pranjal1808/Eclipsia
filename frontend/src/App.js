@@ -7,8 +7,8 @@ export default function App() {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
 
-  const handleLogin = (username) => {
-    setUser(username);
+  const handleLogin = (email) => {
+    setUser(email);
   };
 
   const handleDateChange = (start, end) => {
