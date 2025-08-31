@@ -139,6 +139,56 @@ export default function Dashboard(props) {
     
     React.createElement("div", {
       style: {
+        display: "flex",
+        justifyContent: "space-around",
+        margin: "20px 0"
+      }
+    },
+      React.createElement("button", {
+        style: {
+          padding: "10px 20px",
+          backgroundColor: "#ef6eb1ff",
+          color: "#fff",
+          border: "none",
+          borderRadius: "5px",
+          cursor: "pointer",
+          fontSize: "16px",
+          margin: "10px"
+        },
+        onClick: () => { /* Functionality for Cycles */ }
+      }, "Cycles"),
+      
+      React.createElement("button", {
+        style: {
+          padding: "10px 20px",
+          backgroundColor: "#ef6eb1ff",
+          color: "#fff",
+          border: "none",
+          borderRadius: "5px",
+          cursor: "pointer",
+          fontSize: "16px",
+          margin: "10px"
+        },
+        onClick: () => { /* Functionality for Calendar */ }
+      }, "Calendar"),
+      
+      React.createElement("button", {
+        style: {
+          padding: "10px 20px",
+          backgroundColor: "#ef6eb1ff",
+          color: "#fff",
+          border: "none",
+          borderRadius: "5px",
+          cursor: "pointer",
+          fontSize: "16px",
+          margin: "10px"
+        },
+        onClick: () => { /* Functionality for Analysis */ }
+      }, "Analysis")
+    ),
+    
+    React.createElement("div", {
+      style: {
         backgroundColor: "#2a2a2a",
         padding: "20px",
         borderRadius: "10px",

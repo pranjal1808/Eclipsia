@@ -10,7 +10,13 @@
 * { box-sizing: border-box; }
 body, html, #root { height: 100%; margin: 0; font-family: "Poppins", Arial, sans-serif; background: linear-gradient(#ffeef3, #fff); }
 
-.app { min-height: 100vh; padding-bottom: 80px; }
+.app { 
+  height: 100vh; 
+  width: 100%;
+  padding-bottom: 80px;
+  display: flex;
+  flex-direction: column;
+}
 
 /* header */
 .header {
@@ -23,8 +29,16 @@ body, html, #root { height: 100%; margin: 0; font-family: "Poppins", Arial, sans
 .name { color:#ff6b9a; font-weight:600; }
 .sub { color:var(--muted); font-size:14px; }
 
+/* main content area */
+.main { 
+  flex: 1;
+  padding: 0 20px 20px 20px; 
+  max-width:100%;
+  margin:0 auto;
+  width: 100%;
+}
+
 /* top card & circle */
-.main { padding: 0 20px 20px 20px; max-width:920px; margin:0 auto; }
 .top-card { text-align:center; padding-top:10px; }
 .circle { width:220px; height:220px; border-radius:50%; margin:20px auto; background: radial-gradient(circle at 20% 20%, #ff9aa9, #ff7a9a 60%); display:flex; align-items:center; justify-content:center; color:white; box-shadow: 0 8px 20px rgba(0,0,0,0.08); }
 .circle-inner { text-align:center; }
@@ -32,7 +46,6 @@ body, html, #root { height: 100%; margin: 0; font-family: "Poppins", Arial, sans
 .period-day { font-size:42px; font-weight:700; margin-top:6px; }
 .fertility { margin-top:12px; font-size:13px; opacity:0.95; }
 
-<<<<<<< HEAD
 /* edit button */
 .edit-btn { margin:18px auto; display:inline-block; padding:12px 34px; border-radius:28px; border:none; background:#fff; color:#ff6b9a; font-weight:700; box-shadow:0 6px 14px rgba(0,0,0,0.08); cursor:pointer; }
 
@@ -52,8 +65,3 @@ body, html, #root { height: 100%; margin: 0; font-family: "Poppins", Arial, sans
 /* bottom nav */
 .bottom-nav { position:fixed; bottom:0; left:0; right:0; background:#fff; height:72px; display:flex; align-items:center; justify-content:space-around; box-shadow:0 -6px 18px rgba(0,0,0,0.06); }
 .plus-center { width:56px; height:56px; border-radius:50%; background:var(--accent); color:#fff; font-size:26px; border:none; transform:translateY(-10px); }
-=======
-.read-the-docs {
-  color: #888;
-}
->>>>>>> 112ff98fe837f9aea2c93e944332ea3c55e8a029

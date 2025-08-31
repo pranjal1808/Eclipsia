@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Eclipsia.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5d546c1c20d60f7207b34accdd6953515c5ca102")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2f75d7d82ca42ef576fdcd5a481aaecbf220f52d")]
 [assembly: System.Reflection.AssemblyProductAttribute("Eclipsia.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Eclipsia.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
